@@ -6,12 +6,12 @@ pipeline {
          steps {
         sh 'rm -rf * .env'
      } }          
-    stage('Cloning Git') {
-//slackSend (color: '#FFFF00', message: "cloning-projetc : Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' " , channel: "jenkins" )
-      steps {
-        git 'https://github.com/Bharat2912/sample-app-task.git'
-      }
-    }
+//     stage('Cloning Git') {
+// //slackSend (color: '#FFFF00', message: "cloning-projetc : Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' " , channel: "jenkins" )
+//       steps {
+//         git 'https://github.com/Bharat2912/sample-app-task.git'
+//       }
+//     }
         
     stage('Install dependencies') {
   //       slackSend (color: '#FFFF00', message: "Installing dependencies : Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' " , channel: "jenkins" )
