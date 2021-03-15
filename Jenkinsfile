@@ -1,17 +1,21 @@
 pipeline {
   agent any
           
-  stages {
-     stage('remove-old-code') {
+  stages {        
+
+     stage('Cloning the Project') {
          steps {
-        sh 'rm -rf * .env'
-     } }          
-//     stage('Cloning Git') {
-// //slackSend (color: '#FFFF00', message: "cloning-projetc : Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' " , channel: "jenkins" )
-//       steps {
-//         git 'https://github.com/Bharat2912/sample-app-task.git'
-//       }
-//     }
+             script {
+        try{        
+            def cause = currentBuild.getBuildCauses('hudson.model.Cause$UserIdCause')
+            git 'https://github.com/Bharat2912/sample-app-task.git'
+        }
+        catch(Exception e) {
+          echo "FAILED ${e}"
+          currentBuild.result = 'FAILURE'
+          throw e
+        } }
+} }    
         
     stage('Install dependencies') {
   //       slackSend (color: '#FFFF00', message: "Installing dependencies : Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' " , channel: "jenkins" )
