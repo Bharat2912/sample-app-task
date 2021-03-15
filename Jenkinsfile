@@ -6,6 +6,7 @@ pipeline {
     stage('Install dependencies') {
   //       slackSend (color: '#FFFF00', message: "Installing dependencies : Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' " , channel: "jenkins" )
       steps {
+        sh 'rm package-lock.json'
         sh 'npm install'
       }
     }   
