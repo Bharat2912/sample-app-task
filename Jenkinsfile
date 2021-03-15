@@ -1,21 +1,7 @@
 pipeline {
   agent any
           
-  stages {        
-
-     stage('Cloning the Project') {
-         steps {
-             script {
-        try{        
-            def cause = currentBuild.getBuildCauses('hudson.model.Cause$UserIdCause')
-            git 'https://github.com/Bharat2912/sample-app-task.git'
-        }
-        catch(Exception e) {
-          echo "FAILED ${e}"
-          currentBuild.result = 'FAILURE'
-          throw e
-        } }
-} }    
+  stages {         
         
     stage('Install dependencies') {
   //       slackSend (color: '#FFFF00', message: "Installing dependencies : Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' " , channel: "jenkins" )
