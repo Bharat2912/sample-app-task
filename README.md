@@ -1,7 +1,7 @@
 # simple-node-js-react-npm-app
 
 start in local env
-  npm start
+* npm start *
   
 For Jenkins
 
