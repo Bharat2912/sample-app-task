@@ -1,12 +1,11 @@
 pipeline {
   agent any
-    
+          
+  stages {
      stage('remove-old-code') {
          steps {
         sh 'rm -rf * .env'
-     } }        
-  stages {
-        
+     } }          
     stage('Cloning Git') {
 //slackSend (color: '#FFFF00', message: "cloning-projetc : Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' " , channel: "jenkins" )
       steps {
